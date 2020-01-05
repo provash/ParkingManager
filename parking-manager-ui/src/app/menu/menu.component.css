@@ -1,0 +1,33 @@
+
+header {
+  background: #0986ff;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+nav {
+  justify-self: left;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+a {
+  padding: 0.3em;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+a:hover {
+  background: #a2b8ff;
+}
+

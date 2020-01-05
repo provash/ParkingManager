@@ -1,0 +1,47 @@
+<h1>Parking Reports</h1>
+
+<form [formGroup]="parkingReportReqForm" (ngSubmit)="onSubmit()">
+
+  <h5 *ngIf="success">Your form is valid!</h5>
+  <!--Need to change to Date picker -->
+  <label>
+    From Date:
+    <input type="text" formControlName="fromDate">
+    <div *ngIf="submitted && parkingReportReqForm.controls.fromDate.errors" class="error">
+      <div *ngIf="parkingReportReqForm.controls.fromDate.errors.required">From Date is required</div>
+    </div>
+  </label>
+  <!--Need to change to Date picker -->
+  <label>
+    To Date:
+    <input type="text" formControlName="toDate">
+    <div *ngIf="submitted && parkingReportReqForm.controls.toDate.errors" class="error">
+      <div *ngIf="parkingReportReqForm.controls.toDate.errors.required">To Date is required</div>
+    </div>
+  </label>
+<!--Need to change to list box -->
+  <label>
+    Parking Status:
+    <input type="text" formControlName="parkingStatus">
+    <div *ngIf="submitted && parkingReportReqForm.controls.parkingStatus.errors" class="error">
+      <div *ngIf="parkingReportReqForm.controls.parkingStatus.errors.required">Parking status is required</div>
+    </div>
+  </label>
+
+  <input type="submit" value="Get parking report" class="cta">
+
+</form>
+
+<div *ngIf="submitted" class="results">
+  <strong> Reports :</strong>
+
+  <ul *ngIf="parkingReports">
+  <li *ngFor="let parkingReport of parkingReports.data">
+    <span>{{ parkingReport.parkingId }}</span>
+    <span>{{ parkingReport.vehicleNumber }}</span>
+    <span>{{ parkingReport.vehicleType }}</span>
+    <span>{{ parkingReport.parkingLotNumber }}</span>
+  </li>
+  </ul>
+
+</div>

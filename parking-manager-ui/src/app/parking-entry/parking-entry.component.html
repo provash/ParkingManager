@@ -1,0 +1,45 @@
+<h1>Parking Entry Request</h1>
+
+<form [formGroup]="parkingEntryForm" (ngSubmit)="onSubmit()">
+
+  <h5 *ngIf="success">Your form is valid!</h5>
+
+  <label>
+    Vehicle number:
+    <input type="text" formControlName="vehicleNumber">
+    <div *ngIf="submitted && parkingEntryForm.controls.vehicleNumber.errors" class="error">
+      <div *ngIf="parkingEntryForm.controls.name.errors.required">Your Vehicle number is required</div>
+    </div>
+  </label>
+
+  <label>
+    Start time:
+    <input type="text" formControlName="startTime">
+    <div *ngIf="submitted && parkingEntryForm.controls.startTime.errors" class="error">
+      <div *ngIf="parkingEntryForm.controls.startTime.errors.required">Your Start timeis required</div>
+    </div>
+  </label>
+
+  <label>
+    Vehicle Type:
+    <input type="text" formControlName="vehicleType">
+    <div *ngIf="submitted && parkingEntryForm.controls.vehicleType.errors" class="error">
+      <div *ngIf="parkingEntryForm.controls.vehicleType.errors.required">Your Vehicle Type is required</div>
+    </div>
+  </label>
+
+  <label>
+    Parking admin ID:
+    <input type="text" formControlName="parkerId">
+  </label>
+
+
+  <input type="submit" value="Send parking request" class="cta">
+
+</form>
+
+<div *ngIf="submitted" class="results">
+  <strong>Parking Id :</strong>
+  <span>{{ parkingId}}</span>
+
+</div>
